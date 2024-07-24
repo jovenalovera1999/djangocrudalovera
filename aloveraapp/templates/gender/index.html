@@ -5,6 +5,7 @@
 {% endblock 'title' %} 
 
 {% block 'content' %}
+{% include "include/message.html" %}
 <a href="/gender/add" class="btn btn-primary">Add Gender</a>
 <table class="table">
   <thead>
@@ -25,8 +26,8 @@
         <td>{{ gender.date_updated }}</td>
         <td>
           <div class="btn-group">
-            <a href="#" class="btn btn-success">Update</a>
-            <a href="#" class="btn btn-danger">Delete</a>
+            <a href="/gender/edit/{{ gender.gender_id }}" class="btn btn-success">Update</a>
+            <a href="/gender/delete/{{ gender.gender_id }}" class="btn btn-danger">Delete</a>
           </div>
         </td>
       </tr>

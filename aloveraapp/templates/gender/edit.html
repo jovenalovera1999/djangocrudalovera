@@ -1,0 +1,15 @@
+{% extends "layout/base.html" %}
+
+{% block 'title' %} Edit Gender {% endblock 'title' %}
+
+{% block 'content' %}
+<form action="/gender/update/{{ gender.gender_id }}" method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="gender" class="form-label">Gender</label>
+    <input type="text" class="form-control" id="gender" name="gender" value="{{ gender.gender }}" />
+  </div>
+  <a href="/genders" class="btn btn-secondary">Go to List of Genders</a>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock 'content' %}
