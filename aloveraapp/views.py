@@ -131,3 +131,19 @@ def user_update(request, user_id):
   messages.success(request, 'User successfully updated.')
   
   return redirect('/users')
+
+def user_delete(request, user_id):
+  user = User.objects.select_related('gender').get(pk=user_id)
+  
+  data = {
+    'user': user
+  }
+  
+  return render(request, 'user/delete.html', data)
+
+def user_destroy(request, user_id):
+  user = User.objects.get(pk=user_id)
+  user.delete()
+  
+  messages.success(request, 'User successfully deleted.')
+  return redirect('/users')

@@ -13,5 +13,7 @@ urlpatterns = [
     path('user/add', views.user_create),
     path('user/store', views.user_store),
     path('user/edit/<int:user_id>', views.user_edit),
-    path('user/update/<int:user_id>', views.user_update)
+    path('user/update/<int:user_id>', views.user_update),
+    path('user/delete/<int:user_id>', views.user_delete),
+    path('user/destroy/<int:user_id>', views.user_destroy)
 ]
