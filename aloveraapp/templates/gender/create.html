@@ -3,6 +3,8 @@
 {% block 'title' %} Add Gender {% endblock 'title' %}
 
 {% block 'content' %}
+{% include "include/navbar.html" %}
+
 <form action="/gender/store" method="post">
   {% csrf_token %}
   <div class="mb-3">

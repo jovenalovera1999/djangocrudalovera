@@ -3,6 +3,7 @@
 {% block 'title' %} Edit Gender {% endblock 'title' %}
 
 {% block 'content' %}
+{% include "include/navbar.html" %}
 <form action="/gender/update/{{ gender.gender_id }}" method="post">
   {% csrf_token %}
   <div class="mb-3">

@@ -1,0 +1,44 @@
+{% extends "layout/base.html" %}
+
+{% block 'title' %}
+ List of Users 
+{% endblock 'title' %} 
+
+{% block 'content' %}
+{% include "include/navbar.html" %}
+{% include "include/message.html" %}
+<a href="/user/add" class="btn btn-primary">Add User</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id (PK)</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Date Created</th>
+      <th scope="col">Date Updated</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users  %}
+      <tr>
+        <td>{{ user.user_id }}</td>
+        {% if user.middle_name %}
+          <td>{{ user.first_name }} {{ user.middle_name }} {{ user.last_name }}</td>
+        {% else %}
+          <td>{{ user.first_name }} {{user.last_name}}</td>
+        {% endif %}
+        <td>{{ user.gender }}</td>
+        <td>{{ user.date_created }}</td>
+        <td>{{ user.date_updated }}</td>
+        <td>
+          <div class="btn-group">
+            <a href="/user/edit/{{ user.user_id }}" class="btn btn-success">Update</a>
+            <a href="#" class="btn btn-danger">Delete</a>
+          </div>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock 'content' %}
